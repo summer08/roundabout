@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D旋转切换</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="box">
+    <div class="pic-left">
+        <div id="featured-area">
+            <ul>
+                <li>000<img src="http://vipbook.sinaedge.com/bookcover/pics/219/cover_4833882e25335e1cfad4f19947baebbe.jpg"/></li>
+                <li>111<img src="http://vipbook.sinaedge.com/bookcover/pics/155/cover_81372d822c3bed007ddaa3b3cedd07f9.jpg"/></li>
+                <li>222<img src="http://vipbook.sinaedge.com/bookcover/pics/85/cover_8d9ee6790b0913eb2f27214e5ebf2ff7.jpg"/></li>
+            </ul>
+            <a href="javascript：void(0)" class="ban_l_btn"></a>
+            <a href="javascript：void(0)" class="ban_r_btn"></a>
+
+        </div>
+    </div>
+    <div class="arearight">
+        <div class="arearight-warp" id="arearight-warp">
+            <ul class="scrollpic-warp">
+                <li style="display: block;">
+                    <a href="javascript:;">
+                        <p class="warp-title">00时间会给你答案</p>
+                        <p class="warp-author">心星逍遥   著</p>
+                        <p class="warp-content">我们哭过、疼过、迷茫过，但总有一天会以另一种方式得到补偿。有的人是拿来成长的；有的人是拿来一起生活的；有的…</p>
+                    </a>
+                    <a  href="javascript:;" class="warp-detail">书籍详情</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <p class="warp-title">11时间会给你答案</p>
+                        <p class="warp-author">心星逍遥   著</p>
+                        <p class="warp-content">我们哭过、疼过、迷茫过，但总有一天会以另一种方式得到补偿。有的人是拿来成长的；有的人是拿来一起生活的；有的…</p>
+                    </a>
+                    <a  href="javascript:;" class="warp-detail">书籍详情</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <p class="warp-title">22时间会给你答案</p>
+                        <p class="warp-author">心星逍遥   著</p>
+                        <p class="warp-content">我们哭过、疼过、迷茫过，但总有一天会以另一种方式得到补偿。有的人是拿来成长的；有的人是拿来一起生活的；有的…</p>
+                    </a>
+                    <a  href="javascript:;" class="warp-detail">书籍详情</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-1.4.2.min.js"></script>
+<script src="js/jquery.roundabout.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script>
+    $(function(){
+        $('#featured-area ul').roundabout({
+            easing: 'easeOutInCirc',
+            duration: 500,
+            minScale: 0.62,
+            minOpacity: 0.5,
+            btnPrev: ".ban_r_btn", // 右按钮
+            btnNext: ".ban_l_btn" // 左按钮
+        });
+        var contentWarp = $('#arearight-warp li');
+        $('#featured-area ul li').focus(function(){
+            var index = $(this).index();
+            contentWarp.eq(index).show().siblings().hide();
+        });
+    })
+</script>
+</body>
+</html>
